@@ -1,6 +1,8 @@
 <?
+require_once(MODELS . "/Validator.php");
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $errors = [];
+
     $fillable = ['title', 'descr', 'content'];
     $data = load_req_data($fillable);
     $rules = [
@@ -20,26 +22,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         ]
     ];
 
+    $data2 = [
+        "email" => "lilian@gmail.com",
+        'pass' => '1234',
+        "pass_confirm" => '1234'
+    ];
+
+    $rules2 = [
+        'email' => [
+            'email' => true
+        ],
+        'pass' => [
+            'required' => true,
+            'min' => 3
+        ],
+        "pass_confirm" => [
+            'math' => 'pass'
+        ]
+    ];
+
     $validator = new Validator();
     $validation = $validator->validate($data, $rules);
-
-
-    if (empty($data['title'])) {
-        $errors['title'] = "Title is required";
-    }
-    if (empty($data['descr'])) {
-        $errors['descr'] = "Description is required";
-    }
-    if (empty($data['content'])) {
-        $errors['content'] = "Content is required";
-    }
-
-    if (empty($errors)) {
-        $db->query(
-            "INSERT INTO `posts`(`title`, `descr`, `content`) VALUES (?,?,?)",
-            [$data['title'], $data['descr'], $data['content']]
-        );
-    }
 }
 
 $title = $header = "New post";
