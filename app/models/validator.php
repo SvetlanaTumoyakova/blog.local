@@ -33,7 +33,7 @@ class Validator
     {
         foreach ($field['rules'] as $rule => $rule_value) {
             if (in_array($rule, $this->validators_list)) {
-                if (call_user_func_array([$this, $rule], [$field['value'], $rule_value])) {
+                if (!call_user_func_array([$this, $rule], [$field['value'], $rule_value])) {
                     $this->addError(
                         $field["fieldname"],
                         str_replace(
@@ -63,16 +63,16 @@ class Validator
 
     private function required($value, $rule_value = true)
     {
-        return empty($value);
+        return !empty($value);
     }
     private function min($value, $rule_value)
     {
-        return mb_strlen($value, "UTF-8") <= $rule_value;
+        return mb_strlen($value, "UTF-8") >= $rule_value;
     }
 
     private function max($value, $rule_value)
     {
-        return mb_strlen($value, "UTF-8") >= $rule_value + 1;
+        return mb_strlen($value, "UTF-8") <= $rule_value + 1;
     }
     private function email($value, $rule_value)
     {

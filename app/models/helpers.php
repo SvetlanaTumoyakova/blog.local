@@ -49,3 +49,15 @@ function h($str)
 {
     return trim(htmlentities($str, ENT_QUOTES));
 }
+
+function redirect($url = '')
+{
+    if ($url) {
+        $redirect = $url;
+    } else {
+        $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+    }
+
+    header("Location: {$redirect}");
+    die;
+}
