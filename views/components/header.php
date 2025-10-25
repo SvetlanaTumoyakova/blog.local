@@ -39,4 +39,4 @@
                 </div>
             </nav>
         </header>
-        <? dump($_SESSION) ?>
+        <?= get_alerts() ?>

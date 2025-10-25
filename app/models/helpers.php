@@ -61,3 +61,32 @@ function redirect($url = '')
     header("Location: {$redirect}");
     die;
 }
+
+function get_alerts()
+{
+    $alerts = [
+        "success",
+        "danger",
+        "info",
+        "warning",
+    ];
+
+    function get_alert($type)
+    {
+        echo "<div class='alert alert-{$type} alert-dismissible fade show' role='alert'>
+            {$_SESSION[$type]}
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+    }
+
+    if (!empty($_SESSION)) {
+        echo "<div class='container py-3'>";
+        foreach ($_SESSION as $key => $value) {
+            if (in_array($key, $alerts)) {
+                get_alert($key);
+                unset($_SESSION[$key]);
+            }
+        }
+        echo "</div>";
+    }
+}

@@ -47,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!$validation->hasErrors()) {
         try {
             $db->query("INSERT INTO `posts`(`title`, `descr`, `content`) VALUES (?,?,?)", [$data['title'], $data['descr'], $data['content']]);
-            $__SESSION['success'] = "Post created successfully";
+            $_SESSION['success'] = "Post created successfully";
         } catch (PDOException $e) {
-            $__SESSION['error'] = "SERVER ERROR";
+            $_SESSION['danger'] = "SERVER ERROR";
         }
         redirect('home');
     }
