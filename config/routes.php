@@ -1,8 +1,13 @@
 <?
-$routes = [
-    '' => 'posts/index.php',
-    'home' => 'posts/index.php',
-    "about.php" => "about.php",
-    "create.php" => "posts/create.php"
-];
 
+$router->get('home', 'posts/index.php');
+$router->get('', 'posts/index.php');
+$router->get('/', 'posts/index.php');
+$router->get('posts', 'posts/index.php');
+
+$router->get('post', 'posts/show.php');
+
+$router->get('posts/create', 'posts/create.php');
+$router->post('posts', 'posts/store.php');
+
+$router->get('about', 'about.php');

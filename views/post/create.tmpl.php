@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-10">
             <h3><?= $header ?? '' ?></h3>
-            <form action="" method="POST">
+            <form action="posts" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">Post title</label>
                     <input class="form-control" id="title" name="title" value="<?= old('title') ?>">
