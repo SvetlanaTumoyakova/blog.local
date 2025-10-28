@@ -10,7 +10,7 @@ class Router
     public function __construct()
     {
         $this->uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], "/");
-        $this->method = $_SERVER['REQUEST_METHOD'];
+        $this->method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
     }
 
     private function add($uri, $method, $controller)
@@ -32,11 +32,15 @@ class Router
     }
     public function delete($uri, $controller)
     {
-        // $this->add($uri, "GET", $controller);
+        $this->add($uri, "DELETE", $controller);
     }
     public function put($uri, $controller)
     {
-        // $this->add($uri, "GET", $controller);
+        $this->add($uri, "PUT", $controller);
+    }
+    public function patch($uri, $controller)
+    {
+        $this->add($uri, "PATCH", $controller);
     }
 
     public function math()
@@ -58,6 +62,4 @@ class Router
             abort();
         }
     }
-
-
 }

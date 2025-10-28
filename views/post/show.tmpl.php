@@ -7,6 +7,12 @@
 
             <p><?= $post['descr'] ?></p>
             <p><?= $post['content'] ?></p>
+
+            <form action="posts" method="POST">
+                <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
         <div class="col-2">
         </div>
