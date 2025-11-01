@@ -12,4 +12,6 @@ $router->get('posts/create', 'posts/create.php');
 $router->post('posts', 'posts/store.php');
 $router->delete('posts', 'posts/destroy.php');
 
+$router->patch('posts', 'posts/rates.php');
+
 $router->get('about', 'about.php');

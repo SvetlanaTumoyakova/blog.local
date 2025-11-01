@@ -58,6 +58,7 @@ class Router
                 break;
             }
         }
+
         if (!$isMath) {
             abort();
         }

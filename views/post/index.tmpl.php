@@ -13,7 +13,6 @@
                                 <h5 class="card-title"><a href="post?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
                                 </h5>
                                 <p class="card-text"><?= $post['descr'] ?></p>
-                                <p class="card-text"><?= $post['content'] ?></p>
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             </div>
                         </div>
@@ -29,10 +28,6 @@
 </main>
 
 <? require_once(COMPONENTS . "/footer.php"); ?>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
 </div>
 </body>
 

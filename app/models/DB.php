@@ -8,6 +8,7 @@ class DB
     private function __construct()
     {
     }
+
     // private function __clone(){}
     // private function __wakeup();
     public static function getInstance()
@@ -56,6 +57,11 @@ class DB
     public function rowCount()
     {
         return $this->stmt->rowCount();
+    }
+
+    public function getColumn()
+    {
+        return $this->stmt->fetchColumn();
     }
 
 }

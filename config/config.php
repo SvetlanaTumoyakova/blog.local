@@ -1,5 +1,5 @@
 <?
-define("PATH", "http://blog.local/");
+define("PATH", "https://blog.local/");
 define("ROOT", dirname(__DIR__));
 
 define("APP", ROOT . "/app");
