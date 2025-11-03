@@ -12,4 +12,7 @@ $router = new Router();
 require_once CONFIG . "/routes.php";
 
 $router->math();
+
+
+
 ?>

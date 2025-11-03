@@ -18,8 +18,12 @@
                         </div>
                     </div>
                 </div>
-            <? endforeach ?>
+            <? endforeach;
 
+            for ($i = 1; $i <= $pagination->pagesCount; $i++) {
+                echo "<a href='?page=$i'>$i</a>     ";
+            }
+            ?>
         </div>
         <div class="col-2">
             <? require_once(COMPONENTS . "/sidebar.php"); ?>
