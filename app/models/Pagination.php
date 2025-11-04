@@ -31,7 +31,7 @@ class Pagination
         if ($this->page < 1) {
             $page = 1;
         }
-        if ($this->$page > $this->pagesCount) {
+        if ($this->page > $this->pagesCount) {
             $page = $this->pagesCount;
         }
         return $page;
