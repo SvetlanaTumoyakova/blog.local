@@ -16,11 +16,16 @@
 
             <!-- edit -->
 
-            <form action=" posts" method="POST">
+            <form action=" posts" method="POST" class="mb-3">
                 <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
+
+            <div class="mb-3">
+                <a href="posts/comment?post_id=<?= $post['post_id'] ?>">New Comment</a>
+            </div>
+
         </div>
         <div class="col-2">
         </div>
